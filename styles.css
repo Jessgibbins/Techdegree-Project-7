@@ -1,0 +1,918 @@
+/* ---------- Universal Styles ---------- */
+
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+    font: 1rem/1.5 'Roboto', sans-serif, Helvetica;
+    min-height: 100vh;
+    background-color: #fff;
+    color: black;
+}
+  
+a {
+    text-decoration: none;
+}
+  
+p {
+    color: #4f4e4e;
+}
+  
+ul {
+    list-style-type: none;
+    padding-left: .75em;
+    color: #4f4e4e;
+}
+  
+span {
+    font-size: 2em;
+    color: #7479BD;
+}
+
+.title {
+    font-size: 1em;
+    font-weight: 400;
+    color: #4f4e4e;
+    padding-top: 1em;
+    padding-left: 20px;
+    text-align: center;
+}
+  
+.active-li {
+    background-color: #f9f9f9;
+    padding: 0;
+}
+
+.active {
+    border-right: 4px solid #81C98F;
+    border-radius: 5px;
+    padding-left: 2em;
+    height: 50px;
+    position: absolute;
+    right: 4.8em;
+    top: .75em;
+}
+  
+.active-icon {
+    opacity: 10;
+}
+  
+textarea,
+select,
+input {
+    border: 1px solid #b2b2b2;
+    width: 90%;
+    padding: 5px;
+    margin: 15px auto;
+    height: 40px;
+    border-radius: 5px;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    background: #f9f9f9;
+    transition: background-color .25s ease-out;
+    color: #cecece;
+}
+  
+input.field {
+    margin-bottom: 0;
+}
+  
+input:focus,
+select:focus {
+    background-color: #fff;
+    outline:0 !important;
+}
+
+/* ---------- Grid Layout ----------- */
+
+.grid-container {
+    position: relative;
+    right: 40px;
+    -webkit-transition: right .5s;
+}
+
+.grid {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    grid-template-rows: 70px 80px;
+    grid-template-areas:
+      "header header header"
+      "sidebar search search"
+      "sidebar traffic traffic"
+      "sidebar daily-traffic daily-traffic"
+      "sidebar mobile-users mobile-users"
+      "sidebar social-stats social-stats"
+      "sidebar new-members new-members"
+      "sidebar recent-activity recent-activity"
+      "sidebar message message"
+      "sidebar settings settings";
+}
+  
+.tab {
+    display: none;
+}
+
+.header {
+    grid-area: header;
+}
+  
+.sidebar {
+    grid-area: sidebar;
+}
+  
+.search {
+    grid-area: search;
+}
+  
+.traffic {
+    grid-area: traffic;
+}
+  
+.daily-traffic {
+    grid-area: daily-traffic;
+}
+  
+.mobile-users {
+    grid-area: mobile-users;
+}
+  
+.social-stats {
+    grid-area: social-stats;
+}
+  
+.new-members {
+    grid-area: new-members;
+}
+  
+.recent-activity {
+    grid-area: recent-activity
+}
+  
+.message {
+    grid-area: message;
+}
+  
+.settings {
+    grid-area: settings;
+}
+  
+
+/* ---------- Buttons ----------- */
+
+button {
+    color: #FFF;
+    display: block;
+    width: 90%;
+    padding: .75em;
+    margin: 0 auto;
+    background-color: #7479BD;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    border: 1px solid #7479BD;
+    transition: background-color .25s ease-out;
+}
+  
+button:focus {
+    outline:0 !important;
+}
+  
+button:hover {
+      background-color: #4D4D71;
+      box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+}
+
+button.cancel {
+    background-color: #b2b2b2;
+    border: 1px solid #b2b2b2;
+}
+  
+button.cancel:hover {
+    background-color:#939393;
+    border: 1px solid #939393;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+}
+
+/* ---------- Header Section ---------- */
+
+.header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: 300;
+    background-color: #7479BD;
+    z-index: 1000;
+}
+  
+.profile > * {
+    margin: 0 6px;
+    font-weight: 300;
+}
+  
+.bell {
+    position: relative;
+    padding-top: 1em;
+}
+  
+.bell-icon:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+  
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+  
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+}
+
+.active-alert {
+    position: absolute;
+    bottom: 12px;
+    left: 22px;
+    color: #81C98F;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #7479BD;;
+    height: 90px;
+    padding: 0 1em;
+    width: 90%;
+    margin: 1em auto;
+    margin-top: 0;
+    border: 1px solid #7479BD;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  
+.alert h3 {
+    font-weight: 400;
+    font-size: .9em;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+}
+  
+.alert h2 {
+    color: #fff;
+    font-size: 1.75em;
+}
+  
+.close-alert {
+    position: relative;
+    bottom: 28px;
+    left: 8px;
+    -webkit-transition: right .5s;
+    right: 0px;
+}
+
+.logo {
+    padding-left: 1em;
+    font-weight: 100;
+    font-size: 1.5em;
+}
+  
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1em;
+}
+  
+.member-pic,
+.profile-image {
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: inline;
+}
+  
+.my-image {
+    width: 50px;
+    height: 50px;
+    border: none;
+    margin-left: 1em;
+}
+  
+.profile-img-container {
+    border-left: 1px solid #4D4D71;
+}
+  
+.userName {
+    display: none;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search {
+    background-image: url(../icons/search-interface-symbol.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 97% 53%;
+}
+
+/* ---------- Sidebar Section ----------- */
+
+.sidebar {
+    position: relative;
+    right: 80px;
+    -webkit-transition: right .5s;
+}
+
+.sidebar {
+    background-color: #4D4D71;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.sidebar-icon {
+    margin: 1.5em 0;
+    opacity: .5;
+    height: 30px;
+    width: 30px;
+}
+
+.sidebar-icon:hover {
+    cursor: pointer;
+    opacity: 10;
+    transition: all .5s;
+}
+
+/* ---------- Traffic Chart ---------- */
+
+.traffic .title {
+    padding-top: 0;
+}
+
+.daily-traffic,
+.mobile-users {
+    border: 1px solid #d6d6d6;
+  }
+  
+.daily-traffic-container {
+    margin: auto;
+    height: 210px;
+    padding: 1em;
+    width: 95%;
+}
+
+.traffic-chart {
+    margin: auto;
+    border: 1px solid #d6d6d6;
+    border-bottom: none;
+    padding-top: 1em;
+}
+  
+.traffic-container,
+.mobile-container {
+    display: block;
+    margin: auto;
+    height: 182px;
+    width: 95%;
+    padding: 1em;
+}
+  
+.traffic-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.traffic-options {
+    display: flex;
+    margin-right: .5em;
+}
+  
+.traffic-options p {
+    margin: 0 .25em;
+    padding: 0 .5em;
+    border: 1px solid transparent;
+}
+  
+.traffic-options-active {
+    border: 1px solid #81C98F;
+    border-radius: 25px;
+    background-color: #81C98F;
+    color: #fff;
+}
+
+/* ---------- Mobile Users Chart ---------- */
+
+.mobile-users {
+    border-top: none;
+}
+
+/* ---------- Social Stats ---------- */
+
+.social-stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+.social-icon {
+    height: 60px;
+    width: 60px;
+    /* border-radius: 50%; */
+    background-color: #7377bf;
+    padding: 16px;
+    margin-right: 1em;
+}
+  
+.social-div {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    color: #4D4D71;
+    padding: 1em 1em;
+    border: solid 1px #f4f2f2;
+    margin: 1em auto;
+}
+  
+.social-div h3 {
+    color: #7479BD;;
+}
+  
+.social-div h1,
+.social-div h3 {
+    margin: auto;
+    text-align: center;
+}
+  
+.social-div h1 {
+    font-weight: 300;
+    color: #3f3f3f;
+}
+
+/* ---------- New Members Section ---------- */
+
+.new-members {
+    padding: 1em 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+}
+
+.member ul,
+.member p {
+    font-size: 1em;
+    margin: 0;
+    font-size: .8em;
+}
+  
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: solid 1px #f4f2f2;
+}
+
+/* ----------- Recent Activity ---------- */
+
+.recent-activity {
+    padding-top: 1em;
+}
+
+/* ---------- Message ---------- */
+
+.message,
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #d6d6d6;
+    margin: 1em 0;
+    padding-bottom: 1em;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+textarea:focus {
+    border: 2px solid #2d3944;
+    background-color: #fff;
+}
+
+textarea {
+  margin-top: 1em;
+  margin-bottom: 17px;
+  height: 120px;
+  resize: none;
+}
+
+label {
+  font-size: 1em;
+  color: #7c7c7c;
+  font-weight: 300;
+  display: inline-block;
+}
+
+textarea:invalid:focus,
+input[type="text"]:invalid:focus {
+    background: #fff;
+    background-image: url(../icons/close.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 98.3% 53%;
+    transition: background-color .25s ease-out;
+  }
+  
+textarea:invalid:focus {
+    background-position: 98.3% 5%;
+}
+
+.autofill {
+    padding-left: 0;
+    border: 1px solid #b2b2b2;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    position: absolute;
+    left: 5%;
+}
+
+input#username.field {
+    margin: 0;
+}
+  
+#autofill li {
+    bottom: 1em;
+    right:1em;
+    height: 40px;
+    padding: 5px;
+    margin: auto;
+    color: #4f4e4e;
+}
+  
+
+/* ---------- Settings Section ---------- */
+
+.checkbox {
+    width: 40px;
+    height: 10px;
+    background: #555;
+    margin: 20px 80px;
+    position: relative;
+    border-radius: 3px;
+}
+  
+.checkbox label {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    background: #ccc;
+}
+  
+.checkbox input[type=checkbox]:checked + label {
+      left: 27px;
+}
+
+.settings-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.privacySettings,
+.emailSettings {
+      width: 84px;
+      height: 35px;
+      background: #7479BD;
+      margin: 0px 1em;
+      border: solid 1px #f4f2f2;
+      border-radius: 50px;
+      position: relative;
+}
+
+.privacySettings:before,
+.emailSettings:before {
+      content: 'On';
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      height: 2px;
+      color: #fff;
+      font-size: 16px;
+}
+
+.privacySettings:after,
+.emailSettings:after {
+      content: 'Off';
+      position: absolute;
+      top: 6px;
+      left: 54px;
+      height: 2px;
+      color: #fff;
+      font-size: 16px;
+}
+
+.privacySettings label,
+.emailSettings label {
+      display: block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50px;
+      border: solid 1px #f4f2f2;
+      transition: all .5s ease;
+      position: absolute;
+      top: 4px;
+      z-index: 1;
+      left: 4px;
+      background: #f9f9f9;
+}
+
+.privacySettings input[type=checkbox]:checked + label,
+.emailSettings input[type=checkbox]:checked + label {
+      left: 53px;
+}
+  
+::-webkit-input-placeholder {
+    text-align: left;
+    font-weight: lighter;
+    color: #bfbdbd;
+    font-size: 1em;
+    padding-left: 1em;
+    padding-top: 4px;
+}
+
+.settings-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.settings-buttons button {
+    width: 47%;
+    margin: 0;
+}
+
+.settings-options:nth-last-of-type(2) {
+    margin-bottom: 2em;
+}
+  
+.settings-options p {
+    margin-left: 20px;
+}
+  
+/* ---------- Meida Queries ---------- */
+  
+@media screen and (min-width: 720px) {
+    .grid {
+      grid-template-areas:
+        "header header header"
+        "sidebar search search"
+        "sidebar traffic traffic"
+        "sidebar daily-traffic mobile-users"
+        "sidebar social-stats social-stats"
+        "sidebar new-members recent-activity"
+        "sidebar message settings";
+  
+      grid-template-rows: 80px 80px;
+    }
+  
+    .grid-container {
+      -webkit-transition: right .5s;
+      right: 0px;
+    }
+  
+    .userName {
+      display: block;
+    }
+  
+    .alert {
+      height: 60px;
+      padding: 1.5em;
+      margin-top: 1em;
+    }
+  
+    .close-alert {
+      position: static;
+    }
+  
+    .arrow {
+      display: none;
+    }
+  
+    .sidebar {
+      top: 0px;
+    }
+  
+    .search {
+      background-color: #f9f9f9;
+      padding-right: 80px;
+      border-bottom: solid 1px #f4f2f2;
+    }
+  
+    #search {
+      background: #fff;
+      width: 40%;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  
+    div.search.grid-item {
+      padding-right: 4%;
+    }
+  
+    .title {
+      text-align: left;
+    }
+  
+    .traffic-options p {
+        margin: 0 .25em;
+    }
+  
+    .daily-traffic-container {
+      height: 320px;
+      padding: 2em;
+      border:none;
+    }
+  
+    .traffic-chart {
+      border:none;
+    }
+  
+    .daily-traffic {
+      border-left: none;
+    }
+
+    .mobile-container {
+      border-right: none;
+    }
+
+    .traffic-container,
+    .mobile-container {
+      height: 290px;
+      padding: 2em;
+    }
+  
+    .tab {
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      font-weight: 400;
+      font-size: 1em;
+      color: #4f4e4e;
+      border-right: solid 1px #f4f2f2;
+      height: 80px;
+      top: -90px;
+      padding-top: 30px;
+      padding-right: 1.5em;
+      padding-left: 1.5em;
+    }
+  
+    .search {
+      justify-content: flex-end;
+    }
+  
+    .social-stats-container {
+      flex-direction: row;
+    }
+  
+    .mobile-users {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid #d6d6d6;
+    }
+    .member {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 1em 0 1em 1em;
+      text-align: left;
+    }
+  
+    .date {
+      margin: 0;
+      margin-left: auto;
+      padding-right: .5em;
+    }
+  
+    .member ul,
+    .member p {
+      font-size: .8em;
+    }
+  
+    .message {
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+    }
+    .settings {
+      border-right: none;
+      border-bottom: none;
+    }
+  
+    .message, .settings {
+      border-top: none;
+      margin: 0;
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+  
+    .checkboxThree {
+      margin: 0px 3em;
+    }
+  
+    .settings-options {
+      padding-left: 1em;
+      align-items: center;
+    }
+
+    .traffic-options {
+      margin-right: 4em;
+      margin-left: 4em;
+    }
+}
+  
+
+@media screen and (min-width: 950px) {
+
+    .social-icon {
+        height: 100px;
+        width: 100px;
+        padding: 30px;
+    }
+    .social-div {
+      padding: 1em 2em;
+    }
+    .alert {
+      height: 50px;
+      padding: 1em;
+    }
+  
+    .member {
+      padding: 1em 2% 1em 4%;
+    }
+  
+    .traffic-header {
+      flex-direction: row;
+    }
+  
+    .traffic-header {
+      justify-content: space-between;
+    }
+  
+    .traffic-header h1 {
+      margin-left: 0;
+    }
+  
+    .traffic-options p {
+      margin: 0 .25em;
+    }
+}
+  
+@media screen and (min-width: 1070px) {
+    .member ul,
+    .member p {
+      font-size: .9em;
+    }
+}
