@@ -1,13 +1,6 @@
-// Main Variables 
-
-const grid = document.querySelector('.grid');
-const search = document.getElementById('search');
-const trafficOptions = document.querySelector('.traffic-options');
-const sidebar = document.querySelector('.sidebar');
-const gridContainer = document.querySelectorAll('.grid-container')
-const closeAlert = document.querySelector('.close-alert');
-
 // Close alert message on click
+
+const closeAlert = document.querySelector('.close-alert');
 
 closeAlert.addEventListener('click', () => {
   const alert = document.querySelector('.alert');
@@ -15,6 +8,8 @@ closeAlert.addEventListener('click', () => {
 });
 
 // Traffic chart click event handler
+
+const trafficOptions = document.querySelector('.traffic-options');
 
 trafficOptions.addEventListener('click', (event) => {
   if (event.target.tagName == 'P') {
@@ -173,11 +168,9 @@ saveButton.addEventListener('click', () => {
 
 const sendMessage = document.querySelector('#sendMessage');
 const messageForUser = document.querySelector('#messageForUser');
+const input = document.querySelector('#userName');
 sendMessage.addEventListener('click', () => {
   if(input.value !== '' && messageForUser.value !== '' ) {
   alert('Your message has been sent!')
 }
-})
-    
-    
-    
+})  

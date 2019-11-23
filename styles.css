@@ -338,7 +338,6 @@ button.cancel:hover {
 }
 
 #search {
-    background-image: url(../icons/search-interface-symbol.svg);
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 97% 53%;
@@ -447,11 +446,12 @@ button.cancel:hover {
 }
   
 .social-icon {
+    display: flex;
     height: 60px;
     width: 60px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
+    padding: 10px;
     background-color: #7377bf;
-    padding: 16px;
     margin-right: 1em;
 }
   
@@ -553,7 +553,6 @@ label {
 textarea:invalid:focus,
 input[type="text"]:invalid:focus {
     background: #fff;
-    background-image: url(../icons/close.svg);
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 98.3% 53%;
