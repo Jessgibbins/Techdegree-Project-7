@@ -147,7 +147,7 @@ const privacySettings = document.querySelector('.privacySettings');
   privacySettings.classList.add('on');
   privacySettings.classList.remove('off');
 }
-})
+});
 
 const emailCheckbox = document.querySelector('#emailCheckbox');
 const emailSettings = document.querySelector('.emailSettings');
@@ -159,18 +159,29 @@ const emailSettings = document.querySelector('.emailSettings');
   emailSettings.classList.add('on');
   emailSettings.classList.remove('off');
 }
-})
+});
 
 const saveButton = document.querySelector('.save');
 saveButton.addEventListener('click', () => {
   alert('Your settings have been saved!')
-})
+});
 
-const sendMessage = document.querySelector('#sendMessage');
-const messageForUser = document.querySelector('#messageForUser');
-const input = document.querySelector('#userName');
-sendMessage.addEventListener('click', () => {
-  if(input.value !== '' && messageForUser.value !== '' ) {
-  alert('Your message has been sent!')
-}
-})  
+// Message form event handlers
+
+const sendMessage = document.getElementById('sendMessage');
+const messageField = document.getElementById('messageField');
+const userName = document.getElementById('userName');
+
+sendMessage.addEventListener('click', (e) => {
+  if (userName.value === '' && messageField.value === '') {
+    alert('Please fill out user name and message field before sending');
+  } else if (userName.value === '') {
+    alert('Please fill out user name before sending');
+  } else if (messageField.value === '') {
+    alert('Please fill out message field before sending');
+  } else {
+    alert('Your messsage has been sent!');
+  }
+});
+
+
